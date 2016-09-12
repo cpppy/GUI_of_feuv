@@ -159,15 +159,15 @@ class mywindow(gtk.Window):
                      win.set_default_size(900,300)
                      win.set_title(shotnum)
 
-                     f=Figure()
-                     a=f.add_subplot(111)
+                     fig=Figure()
+                     ax=f.add_subplot(111)
                      mdsconnect('mds.ipp.ac.cn')
                      mdsopen('east_1',int(shotnum))
                      ipm=mdsvalue('\IPM')
                      t=mdsvalue('dim_of(\IPM)')
-                     a.plot(t,ipm)
+                     ax.plot(t,ipm)
 
-                     canvas=FigureCanvas(f)
+                     canvas=FigureCanvas(fig)
                      win.add(canvas)
 
                      win.show_all()
